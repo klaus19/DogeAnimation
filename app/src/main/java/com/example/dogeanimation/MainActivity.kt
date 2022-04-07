@@ -22,10 +22,23 @@ class MainActivity : AppCompatActivity() {
         //Rotate in Y axis
         rotateY()
 
+        //Rotate in X axis
+        rotateX()
+
 
     }
 
-   //Rotate in Y axis
+    //Rotate in X Axis
+    private fun rotateX() {
+        with(binding){
+            btnRotationX.setOnClickListener {
+                ObjectAnimator.ofFloat(btnRotationX,"rotationX",150f)
+                    .start()
+            }
+        }
+    }
+
+    //Rotate in Y axis
     private fun rotateY() {
         binding.btnRotationY.setOnClickListener {
             ObjectAnimator.ofFloat(binding.btnRotationY,"rotationY",150f)
@@ -34,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //Fade in Animation
     private fun fadeAnim() {
         binding.btnAlphaAnimation.setOnClickListener {
             //This is for Fading Animation
