@@ -2,6 +2,7 @@ package com.example.dogeanimation
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.animation.BounceInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dogeanimation.databinding.ActivityMainBinding
 
@@ -25,7 +26,23 @@ class MainActivity : AppCompatActivity() {
         //Rotate in X axis
         rotateX()
 
+        //BounceInterpolator
+        bounceInterpolator()
 
+
+    }
+
+    //Bounce Animation
+    private fun bounceInterpolator() {
+        with(binding){
+            btnBounceInterpolator.setOnClickListener {
+                val bounceInterpolator:ObjectAnimator = ObjectAnimator.ofFloat(btnBounceInterpolator,"Y",1000f)
+                bounceInterpolator.interpolator = BounceInterpolator()
+                bounceInterpolator.duration = 1000
+                                     bounceInterpolator.start()
+            }
+
+        }
     }
 
     //Rotate in X Axis
