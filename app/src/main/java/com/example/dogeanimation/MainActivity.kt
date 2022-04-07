@@ -19,7 +19,19 @@ class MainActivity : AppCompatActivity() {
         // fade Animation
         fadeAnim()
 
+        //Rotate in Y axis
+        rotateY()
 
+
+    }
+
+   //Rotate in Y axis
+    private fun rotateY() {
+        binding.btnRotationY.setOnClickListener {
+            ObjectAnimator.ofFloat(binding.btnRotationY,"rotationY",150f)
+                .start()
+
+        }
     }
 
     private fun fadeAnim() {
