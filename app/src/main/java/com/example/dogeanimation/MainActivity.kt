@@ -1,11 +1,11 @@
 package com.example.dogeanimation
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dogeanimation.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(),View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
@@ -16,15 +16,25 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         val view = binding.root
         setContentView(view)
 
-     binding.btnAlphaAnimation.setOnClickListener(this)
+        // fade Animation
+        fadeAnim()
 
 
     }
 
-    override fun onClick(v: View?) {
-        when(v == binding.btnAlphaAnimation){
-
+    private fun fadeAnim() {
+        binding.btnAlphaAnimation.setOnClickListener {
+            //This is for Fading Animation
+            ObjectAnimator.ofFloat(binding.btnAlphaAnimation,"alpha",0.3f)
+                .start()
         }
     }
 
+
 }
+
+
+
+
+
+
