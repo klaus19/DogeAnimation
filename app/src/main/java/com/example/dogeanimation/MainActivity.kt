@@ -3,8 +3,11 @@ package com.example.dogeanimation
 import android.animation.AnimatorSet
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.graphics.Color
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
 import androidx.appcompat.app.AppCompatActivity
@@ -40,7 +43,43 @@ class MainActivity : AppCompatActivity() {
         //Choreograping various Animation together
         choreoAnimate()
 
+        getAnimation_Height()
 
+    }
+
+
+    // Getting height and width of screen and random Animation with it
+
+    private fun getAnimation_Height(){
+         binding.btnRandomZig.setOnClickListener {
+             //Found width and height of the screen
+             val displayMetrics = DisplayMetrics()
+             val view = binding.btnRandomZig
+             windowManager.defaultDisplay.getMetrics(displayMetrics)
+             val height = displayMetrics.heightPixels.toFloat()
+            // val width = displayMetrics.widthPixels.toFloat()
+
+             val position_animator = ValueAnimator.ofFloat(0f,-height)
+
+             position_animator.addUpdateListener {
+                 val value = it.animatedValue as Float
+                 binding.btnRandomZig.translationY = value
+             }
+
+             //3
+             val rotationAnimator = ObjectAnimator.ofFloat(view,"rotation",0f,180f)
+
+             //4
+             val animatorSet = AnimatorSet()
+
+             //5
+             animatorSet.play(position_animator).with(rotationAnimator)
+
+             //6
+             animatorSet.duration = 2000
+             animatorSet.start()
+
+         }
     }
 
     private fun choreoAnimate() {
@@ -72,6 +111,8 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+
 
     //Bounce Animation
     private fun bounceInterpolator() {
@@ -113,6 +154,8 @@ class MainActivity : AppCompatActivity() {
                 .start()
         }
     }
+
+
 
 
 }
