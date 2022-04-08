@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                         ContextCompat.getColor(this@MainActivity,R.color.teal_200))
                 )
                 animSet.start()
+
             }
         }
     }
