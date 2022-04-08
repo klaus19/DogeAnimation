@@ -60,6 +60,19 @@
        android:layout_marginTop="30dp"
        android:text="Accelerate"></androidx.appcompat.widget.AppCompatButton>
 
+   <androidx.appcompat.widget.AppCompatButton
+       android:layout_width="120dp"
+       android:layout_height="45dp"
+       android:gravity="center"
+       android:background="@drawable/background_alpha"
+       android:textColor="#FFFFFF"
+       android:layout_below="@id/btnAccelerateInterpolator"
+       android:id="@+id/btnChoreo"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="30dp"
+       android:text="Choreography"></androidx.appcompat.widget.AppCompatButton>
+
+
 
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
