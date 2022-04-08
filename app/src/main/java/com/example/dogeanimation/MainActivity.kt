@@ -2,6 +2,7 @@ package com.example.dogeanimation
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dogeanimation.databinding.ActivityMainBinding
@@ -29,7 +30,22 @@ class MainActivity : AppCompatActivity() {
         //BounceInterpolator
         bounceInterpolator()
 
+        //AccelerateInterpolator Animation
+        accelerateInterpolator()
 
+
+    }
+
+    private fun accelerateInterpolator() {
+        with(binding){
+            btnAccelerateInterpolator.setOnClickListener {
+                val accelerateInterpolator:ObjectAnimator = ObjectAnimator.ofFloat(btnAccelerateInterpolator,"Y",1050f)
+                accelerateInterpolator.interpolator = AccelerateInterpolator()
+                accelerateInterpolator.duration =1000
+                accelerateInterpolator.start()
+            }
+
+        }
     }
 
     //Bounce Animation
