@@ -1,10 +1,14 @@
 package com.example.dogeanimation
 
+import android.animation.AnimatorSet
+import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
+import android.graphics.Color
 import android.os.Bundle
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.dogeanimation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +37,28 @@ class MainActivity : AppCompatActivity() {
         //AccelerateInterpolator Animation
         accelerateInterpolator()
 
+        //Choreograping various Animation together
+        choreoAnimate()
 
+
+    }
+
+    private fun choreoAnimate() {
+      val argb = ArgbEvaluator()
+        with(binding){
+            btnChoreo.setOnClickListener {
+                val animSet = AnimatorSet()
+                animSet.playTogether(
+                    ObjectAnimator.ofFloat(btnChoreo,"scaleX",1.0f,2.0f)
+                        .setDuration(2000),
+                    ObjectAnimator.ofFloat(btnChoreo,"scaleY",1.0f,2.0f)
+                        .setDuration(2000),
+                    ObjectAnimator.ofObject(btnChoreo,"backgroundColor",argb,ContextCompat.getColor(this@MainActivity,R.color.purple_200),
+                        ContextCompat.getColor(this@MainActivity,R.color.teal_200))
+                )
+                animSet.start()
+            }
+        }
     }
 
     private fun accelerateInterpolator() {
