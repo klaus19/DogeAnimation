@@ -4,6 +4,7 @@ import android.animation.AnimatorSet
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -43,13 +44,17 @@ class MainActivity : AppCompatActivity() {
         //Choreograping various Animation together
         choreoAnimate()
 
+        //Getting Height of the screen and then creating an animation
         getAnimation_Height()
+
+        binding.btnNext.setOnClickListener {
+            startActivity(Intent(this@MainActivity,NextActivity::class.java))
+        }
 
     }
 
 
     // Getting height and width of screen and random Animation with it
-
     private fun getAnimation_Height(){
          binding.btnRandomZig.setOnClickListener {
              //Found width and height of the screen
