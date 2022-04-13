@@ -6,6 +6,7 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.animation.AnticipateInterpolator
+import android.view.animation.OvershootInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dogeanimation.databinding.NextLayoutBinding
 
@@ -28,6 +29,18 @@ class NextActivity: AppCompatActivity() {
             anticipateInteraction()
         }
 
+        binding.btnOvershoot.setOnClickListener {
+            overshootAnimation()
+        }
+
+
+    }
+
+    private fun overshootAnimation() {
+        val overshoot:ObjectAnimator = ObjectAnimator.ofFloat(binding.btnOvershoot,"translationY",-120f)
+                   overshoot.interpolator = OvershootInterpolator()
+                   overshoot.duration=1000
+                   overshoot.start()
     }
 
     private fun anticipateInteraction() {
@@ -35,6 +48,7 @@ class NextActivity: AppCompatActivity() {
                  anticipateInterpolator.interpolator = AnticipateInterpolator()
                  anticipateInterpolator.duration =1000
                  anticipateInterpolator.start()
+
     }
 
     private fun repeatMode() {
