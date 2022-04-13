@@ -1,8 +1,11 @@
 package com.example.dogeanimation
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.animation.AnticipateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dogeanimation.databinding.NextLayoutBinding
 
@@ -21,7 +24,17 @@ class NextActivity: AppCompatActivity() {
             repeatMode()
         }
 
+        binding.btnAnticipate.setOnClickListener {
+            anticipateInteraction()
+        }
 
+    }
+
+    private fun anticipateInteraction() {
+        val anticipateInterpolator:ObjectAnimator  = ObjectAnimator.ofFloat(binding.btnAnticipate,"translationY",-200f)
+                 anticipateInterpolator.interpolator = AnticipateInterpolator()
+                 anticipateInterpolator.duration =1000
+                 anticipateInterpolator.start()
     }
 
     private fun repeatMode() {

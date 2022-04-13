@@ -3,14 +3,24 @@
     android:layout_width="match_parent"
     android:background="@drawable/brick"
     android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:id="@+id/btnAnticipate"
+        android:background="@drawable/background_alpha"
+        android:textColor="#FFFFFF"
+        android:text="Anticipate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"></androidx.appcompat.widget.AppCompatButton>
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="120dp"
         android:layout_height="45dp"
         android:id="@+id/btnRepeat"
         android:text="XYZ"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginTop="600dp"
         android:textColor="#FFFFFF"
         android:background="@drawable/background_alpha"
