@@ -6,6 +6,7 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.animation.AnticipateInterpolator
+import android.view.animation.CycleInterpolator
 import android.view.animation.OvershootInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dogeanimation.databinding.NextLayoutBinding
@@ -33,7 +34,18 @@ class NextActivity: AppCompatActivity() {
             overshootAnimation()
         }
 
+        binding.btnCycle.setOnClickListener {
+            cycleAnimation()
+        }
 
+
+    }
+
+    private fun cycleAnimation() {
+        val cycle:ObjectAnimator = ObjectAnimator.ofFloat(binding.btnCycle,"translationX",-200f)
+        cycle.interpolator = CycleInterpolator(2f)
+        cycle.duration=500
+        cycle.start()
     }
 
     private fun overshootAnimation() {
