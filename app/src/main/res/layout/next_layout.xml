@@ -8,14 +8,23 @@
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="120dp"
         android:layout_height="45dp"
+        android:id="@+id/btnAntiOvershoot"
+        android:background="@drawable/background_alpha"
+        android:textColor="#FFFFFF"
+        android:text="AntiOvershoot"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"></androidx.appcompat.widget.AppCompatButton>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="120dp"
+        android:layout_height="45dp"
         android:id="@+id/btnCycle"
         android:background="@drawable/background_alpha"
         android:textColor="#FFFFFF"
         android:text="Cycle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"></androidx.appcompat.widget.AppCompatButton>
-
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="120dp"

@@ -6,6 +6,7 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.animation.AnticipateInterpolator
+import android.view.animation.AnticipateOvershootInterpolator
 import android.view.animation.CycleInterpolator
 import android.view.animation.OvershootInterpolator
 import androidx.appcompat.app.AppCompatActivity
@@ -38,7 +39,17 @@ class NextActivity: AppCompatActivity() {
             cycleAnimation()
         }
 
+        binding.btnAntiOvershoot.setOnClickListener {
+            antiOvershootAnimation()
+        }
 
+    }
+
+    private fun antiOvershootAnimation() {
+        val anti_overshoot = ObjectAnimator.ofFloat(binding.btnAntiOvershoot,"translationX",200f)
+        anti_overshoot.interpolator = AnticipateOvershootInterpolator(10f)
+        anti_overshoot.duration = 1000
+        anti_overshoot.start()
     }
 
     private fun cycleAnimation() {
